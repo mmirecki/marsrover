@@ -7,8 +7,11 @@ import (
 )
 
 var _ = Describe("Rover", func() {
-	// start position: (3, 4) NORTH
 	var rover r.RoverInterface
+
+	BeforeEach(func() {
+		rover =	r.NewRover(3, 4, r.North)
+	})
 
 	It("verifies new rover reports correct position", func() {
 		Expect(rover.GetPosition()).To(Equal("(3, 4) NORTH"))
