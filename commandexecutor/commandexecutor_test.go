@@ -38,6 +38,7 @@ var _ = Describe("Commandexecutor", func() {
 	BeforeEach(func() {
 		r = &roverMock{}
 		var _ rover.RoverInterface = r // ensure mock implements RoverInerface
+		executor = commandexecutor.NewCommandExecutor(r)
 	})
 
 	It("verifies engine processes the forward command correctly", func() {
