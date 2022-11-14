@@ -11,6 +11,11 @@ var _ = Describe("MarsRover", func() {
 	var r rover.RoverInterface // starting postion: (0, 0) NORTH
 	var executor commandexecutor.CommandExecutor
 
+	BeforeEach(func() {
+		r = rover.NewRover(0, 0, rover.North)
+		executor = commandexecutor.NewCommandExecutor(r)
+	})
+
 	It("verifies engine processes the forward command correctly", func() {
 		err := executor.ExecuteCommand("F")
 		Expect(err).NotTo(HaveOccurred())
